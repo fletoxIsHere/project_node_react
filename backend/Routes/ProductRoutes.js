@@ -1,11 +1,11 @@
 const express=require("express")
-const router=express.Router()
+const ProductRouter=express.Router()
 const productsController=require("../Controllers/ProductsController")
 
-router.get("/",productsController.getAllProducts)
-router.get("/:id",productsController.getProductById)
-router.delete("/:id",productsController.deleteProductById)
-router.put("/:id",productsController.updateProduct)
-router.post("/",productsController.addProduct)
+ProductRouter.get("/",productsController.getAllProducts)
+ProductRouter.get("/:id",productsController.getProductById)
+ProductRouter.delete("/:id",productsController.deleteProductById)
+ProductRouter.put("/:id",productsController.updateProduct)
+ProductRouter.post("/",productsController.addProduct)
 
-module.exports=router
+module.exports=ProductRouter

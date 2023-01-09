@@ -1,10 +1,10 @@
 const Product = require("../Models/Product")
 
 const getAllProducts = async()=>{
-return await Product.find()
+return await Product.find().populate("categorie")
 }
 const getProductById = async(id)=>{ 
-return await Product.findOne({_id:id})
+return await Product.findOne({_id:id}).populate("categorie")
 }
 const deleteProductById = async(id)=>{
 return await Product.findByIdAndDelete({_id:id})

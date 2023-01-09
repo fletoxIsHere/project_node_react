@@ -3,7 +3,9 @@ const app=express();
 var cors = require('cors')
 app.use(cors())
 
-const router=require("./Routes/ProductRoutes")
+const ProductRouter=require("./Routes/ProductRoutes")
+const CategorieRouter=require("./Routes/CategorieRoutes")
+
 const loggingMiddelwares=require("./Middlewares/logging_middelware")
 const mongoose=require("mongoose")
 app.use(express.json())
@@ -20,4 +22,5 @@ app.get("/",(req,res)=>{
    res.send("<h2> Bienvneue dans notre app Express</h2>");
 });
 
-app.use("/products",router)
+app.use("/products",ProductRouter)
+app.use("/categories",CategorieRouter)
