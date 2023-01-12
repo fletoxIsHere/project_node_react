@@ -16,10 +16,18 @@ const addProduct = async(product)=>{
 const updateProduct = async(product)=>{
     return await Product.findOneAndUpdate(product._id,product);
     }
+const getProductsByCategorie = async(id)=>{
+    console.log(id)
+    const result =  await Product.find({"categorie":id})
+    console.log(result)
+    return result;
+
+    }
 module.exports = {
 getAllProducts,
 getProductById,
 deleteProductById,
 addProduct,
-updateProduct
+updateProduct,
+getProductsByCategorie
 }

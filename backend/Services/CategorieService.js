@@ -1,5 +1,5 @@
 const Categorie = require("../Models/Categorie")
-
+const mongoose =require("mongoose")
 const getAllCategories = async()=>{
 return await Categorie.find()
 }
@@ -13,8 +13,9 @@ const addCategorie = async(categorie)=>{
     return await Categorie.create(categorie);
     }
 
-const updateCategorie = async(categorie)=>{
-    return await Categorie.findOneAndUpdate(categorie._id,categorie);
+const updateCategorie = async(id,categorie)=>{
+    return await Categorie.updateOne({_id:mongoose.Types.ObjectId(id)},{$set:categorie})
+
     }
 module.exports = {
     getAllCategories,

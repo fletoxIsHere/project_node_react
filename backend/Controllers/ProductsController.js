@@ -48,6 +48,9 @@ const updateProduct = async(req, res)=>{
     res.status(500).json({err:error})
     }
     }
+
+
+
 module.exports = {
 getAllProducts,
 getProductById,
